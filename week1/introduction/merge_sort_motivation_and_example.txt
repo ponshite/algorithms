@@ -1,0 +1,27 @@
+Why Study Merge Sort?!
+It is a very ancient algorithm 1945.
+Oldie but a goodie. Method of choice for sorting.
+Good introduction to divide & conquer.
+  Improves over selection, insertion and bubble sort.
+Calibrate your preparation. Super high level idea.
+Translating should be straightforward.
+Motivates guiding principles for algorithm analysis (worst-case asymptotic analysis)
+Analysis generalizes to "Master Method"
+
+
+The sorting problem.
+Input: array of n numbers, unsorted.
+Output: same numbers, sorted in increasing order.
+
+
+Merge Sort: Example.
+
+          [5,4,1,8,7,2,6,3]
+
+[5,4,1,8]               [7,2,6,3]
+.                         .
+.                         .
+.                         .
+[1,4,5,8]               [2,3,6,7]
+            merge
+        [1,2,3,4,5,6,7,8]

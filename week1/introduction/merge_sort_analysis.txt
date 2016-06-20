@@ -1,0 +1,30 @@
+Merge Sort Analysis.
+Claim: For every input array of n numbers, Merge sort produces a sorted output
+array and uses at most 6nlog2n +6 operations.
+
+Proof of claim(assuming n = power of 2)
+[will use "recursion tree"]
+
+
+                      root O                                  level 0
+                      O         O                             level 1
+                     O O       O O                            level 2
+                     ...       ...
+                     ...       ...                            last level.
+
+What is the level of the leaves?
+log2n
+
+How many work is done at each level?
+At each level the input size is n/j^2
+
+What is the number of subproblems in level j?
+2^j
+
+Total # operations at level j <= 2^j * 6(n/j^2) = 6n. Independent of the lvl j.
+Two competing forces, the amount of work is halving while the number of
+subproblems are growing.
+
+
+Number of levels * work per level
+(log2n + 1)* 6n = 6log2n + 6n

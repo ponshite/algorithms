@@ -1,0 +1,45 @@
+Merge Sort: Pseudocode.
+- Recursively sort 1st half of input array.
+- Recursively sort 2nd half of input array.
+- Merge two sorted sublists into one.
+
+
+
+Pseudocode for Merge:
+C= output array(length = n)
+A= 1st sorted array [n/2]
+B= 2nd sorted array [n/2]
+i = 1
+j = 1
+(The min element must be in either i or j)
+for k = 1 to n
+  if A(i) < B(j)
+    C(k) = A(i)
+    i++
+  else
+    C(k) = B(j)
+    j++
+end
+
+We are being sloppy, requires end cases (when you fall off one array.)
+
+
+Merge Sort Running Time?
+Why is this better than Insertion Sort?
+Running time : Operations executed.
+
+This is a very complicated question.
+
+How many operations get executed in the merge subroutine?
+2 out of loop
+4 inside loop
+
+Upshot: 4m + 2 (very sloppy, constants are not going to matter)
+lets call this <= 6m (just to simplify our analysis).
+
+Analyzing merge sort is more intimidating.
+Claim: Merge sorts never needs more than 6nlog2n + 6n operations to sort n
+numbers.
+This is way better than the n^2 running time of the classic sorting algorithms
+
+nlog2n is way better than n^2.

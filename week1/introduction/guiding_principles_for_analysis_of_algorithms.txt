@@ -1,0 +1,29 @@
+Guiding principles for Analysis of Algorithms.
+
+#1 "Worst-case analysis"
+No assumptions on the input.
+Over running time bound holds for every input of input of length n.
+
+As opposed to:
+-"Average case" analysis
+-Benchmarks
+(Requires domain knowledge)
+Worst case analysis is easier to analyze.
+
+#2 Won't pay attention to constant factors, lower-order terms.
+
+Justifications.
+* Way easier
+* Constants are very tricky to track. Depend on architecture/compiler/language
+* Lose very little predictive power
+
+Constant factors are important in practice, but not in the analysis.
+
+#3 Asymptotic analysis:
+
+ Focus on running time for large input sizes n.
+ E.g. 6nlog2n + 6n is better than 1/2 n^ 2
+ the expression on the right is worse only in large inputs.
+
+Justification:
+  Only big problems are interesting.
