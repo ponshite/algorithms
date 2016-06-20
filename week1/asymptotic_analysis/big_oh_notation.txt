@@ -1,0 +1,13 @@
+Big-Oh:
+
+Let T(n) = function on n=1,2,3....
+
+When is T(n) = O(f(n))
+Eventually for all sufficiently large, T(n) is bounded above by a constant
+multiple of f(n)
+
+Formal definition:
+T(n) = O(f(n))
+
+If and only if there exist constants c, no > 0 such that
+T(n) <= cf(n) for all n >= no.

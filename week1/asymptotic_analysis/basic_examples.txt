@@ -1,0 +1,24 @@
+Example #1.
+Claim: if T(n) akn^k + .... +a1n + a0
+
+T(n) = O(n^k)
+
+Proof:
+Choose no=1 and c= |ak| + |ak-1| + .. |a1| + a|0|
+
+Need to show that for every n>= n T(n) <= c * n^k
+
+T(n) <= |ak|n^k + ... + |a1|n + |a0|
+T(n) <= |ak|n^k + ... + |a1|n^k + |a0|n^k
+T(n) <= c *n^k
+QED
+
+Claim: For every k>=1, n^k is not O(n^k-1)
+Proof: By Contradiction.
+
+Suppose n^k is indeed O(n^k-1)
+then there will be two constants c,n0 >0 such that
+n^k <= c * n^k-1
+But then
+n<=c which is clearly false.
+QED

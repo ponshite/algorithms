@@ -26,4 +26,5 @@ Constant factors are important in practice, but not in the analysis.
  the expression on the right is worse only in large inputs.
 
 Justification:
-  Only big problems are interesting.
+  Only big problems are interesting. Sorting 100 elements is trivial.
+  

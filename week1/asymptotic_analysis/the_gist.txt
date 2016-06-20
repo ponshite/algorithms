@@ -1,0 +1,63 @@
+Asymptotic Analysis.
+Language used by Computer scientist to describe running times for algorithms
+
+Motivation:
+Importance: vocabulary for the design and analysis of algorithms
+("big oh notation")
+
+- Sweet spot for high level reasoning about algorithms
+- Coarse enough to suppress architecture/language details
+- Sharp enough to make useful comparison between different algorithms
+
+
+High level idea: Suppress constant factors and lower-order terms.
+
+
+How do we adopt a formalism on this?
+
+Example: Equate 6nlog2n + 6n with just 6nlogn.
+Terminology: Running time is O(nlogn)
+where n = input size (eg length of array)
+
+
+Problem: does array A contain the integer t ?
+for x in A:
+  if x == t return True;
+return False
+What is the running time?
+O(n)
+
+Example: Two loops
+
+One loop follow by another.
+Given A,B (arrays of length n)
+
+for i=1 to n
+  if A[i] == t return true
+for i=1 to n
+  if B[i] == t return true
+return false;
+
+Running time?
+O(n)
+
+
+Problem: do arrays A,B have a number in common?
+given arrays A,B of length n.
+  for i = 1 to n
+    for j =1 to n
+      if A[i] == B[j] return true
+  return false
+
+Running time
+O(n^2) (If you double the input n by 2, the running time will grow 4)
+
+
+Same problem.. Diff implementation
+for i = 1 to n
+  for j =i +1 to n
+    if A[i] == B[j] return true
+return false
+
+Running time
+O(n^2)

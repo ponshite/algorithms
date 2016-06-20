@@ -1,0 +1,23 @@
+Omega notation.
+Mirrors Big Oh notation is its lower bounded.
+
+T(n) = Omega(f(n)) if and only if there exists constants c,no such that
+T(n) >= c*f(n) for all n>= no.
+
+Theta Notation.
+Definition:
+T(n) = Theta(f(n)) if and only if T(n) = O(f(n)) and T(n) = Omega(f(n))
+
+Equivalent, there exist constants  c1,c2,n0 such that
+    c1f(n) <= T(n) <= c2f(n) for all n >= no.
+
+
+We normally bother with upper bounds and not the lower bound.
+
+
+Little - Oh Notation
+Strictly less
+Definition
+T(n) = o(f(n)) if and only if all constants c>0, there exists a constant n0
+such that
+T(n) <= c f(n) for every n>=no
