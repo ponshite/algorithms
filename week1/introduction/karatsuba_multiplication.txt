@@ -1,0 +1,72 @@
+Karatsuba Multiplication.
+
+The algorithm design space is incredibly rich.
+
+
+Example:
+x = 5678
+y = 1234
+
+The steps to get the desired output are very different, but will arrive
+to the same result.
+
+
+a = 56
+b = 78
+c = 12
+d = 34
+
+Step 1: Compute a*c = 672
+Step 2: Compute b*d = 2652
+Step 3: Compute (a+b)(c+d) = 134 * 46 = 6164
+Step 4: Compute 3 - 2 - 1 = 2840
+Step 5:  ac padded with 0 zeros. 6720000
+         bd with no pad. 2652
+         Step 4 result padded with 3 zeros 2840
+         If you sum all of this, you will obtain the result.
+
+Key realization. The third grade algorithm is not the only player in town.
+Which one is better?
+
+
+A recursive Algorithm.
+The first step is to reduce the input.
+Write
+x = 10^n/2 * a + b
+and
+y = 10^n/2*c +d
+where a,b,c,d are n/2 digits numbers.
+
+
+Then:
+x*y = (10^n/2 a + b) * (10^n/2c +d)
+    = (10 ^n ac + 10^n/2 (ad+bc) + bd)  *
+
+The * expression only relies on smaller numbers of the input.
+There are four relevant products. ac, ad, bc, bd.
+
+Idea: recursively compute ac,ad,bc,bd, then compute (*) in the straightforward
+way. ( We are being sloppy since we didn't add a base case )
+
+
+Is this algorithm faster or slower from the Third grade algorithm?!?!
+
+
+Karatsuba Multiplication.
+
+Recall:
+x*y = (10 ^n ac + 10^n/2 (ad+bc) + bd)  *
+
+We only care ad+bc, we only care about their sum and not their product.
+Can we get away with 3 recursive calls instead of 4?
+
+Step1: recursively compute ac
+Step2: recursively compute bd
+Step3: recursively compute (a+b)(c+d) = ac + ad +bc +bd
+
+Gauss's trick: 3 - 1 -2 = ad+bc
+
+Upshot: Only need 3 recursive multiplications! (and some additions)
+
+We need some tools in order to be able to analyze the running time of this
+algorithm.

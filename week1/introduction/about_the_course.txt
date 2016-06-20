@@ -1,0 +1,22 @@
+Course topics.
+Vocabulary for design and analysis of algorithms.
+  "Big-Oh" Notation
+  "Sweet spot" for high-level reasoning about algorithms.
+Divide and conquer algorithm design paradigm.
+  Will apply: Integer multiplication, sorting, matrix multiplication, closest
+              pair.
+  General analysis methods( "Master Method/Theorem")
+Randomization in algorithm design
+  Will apply to: Quick sort, primality testing, graph partition, hashing.
+Primitives for reasoning about graphs
+  Connectivity information, shortest paths, structure of information and
+  social networks.
+Use and implementation of data structures.
+  Heaps, balanced binary search trees, hashing and some variants.
+
+Skills you will learn
+* Become a better programmer.
+* Sharpen your mathematical and analytical skills.
+* Start "thinking algorithmically"
+* Literacy with computer science's "greatest hits"
+* Ace your technical interview
