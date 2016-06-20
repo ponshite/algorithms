@@ -1,0 +1,54 @@
+The divide and conquer paradigm.
+1. Divide the problem into smaller subproblems.
+2. Conquer via recursive calls.
+3. Combine solutions of subproblems into one of the original problem.
+
+
+Counting inversions.
+Input: Array A containing the numbers 1,2,3, in some arbitrary order.
+Output: Number of inversions = number of pairs (i,j) of array indices with
+i<j and A[i] > A[j]
+
+Examples and motivation:
+[1,3,5,2,4,6]
+
+Inversions:
+ 3 -> 2
+ 5 -> 2
+ 5 -> 4
+
+What is the largest number of inversions?
+[6,5,4,3,2,1]
+
+5 + 4 + 3 + 2 +1 = (n*(n-1)) / 2
+
+
+High level approach.
+Brute force.
+Enumerate all the pairs, check for inversions
+O(n^2)
+
+Can we do better?
+Key idea #1 Use divide and conquer
+
+left inversion if i,j <= n/2
+right inversion if i,j > n/2
+split if i <= n/2 < j
+
+We can compute all the left and right inversion using recursion.
+Need to implement a separate method to count split inversions.
+[1,3,5,2,4,6]
+All split inversions.
+All the work will be done in the countSplitInversions subroutine.
+
+High level algorithm:
+count(array A, length n)
+if n =1 return 0;
+else :
+  x = count(1st half of A, n/2)
+  y = count(2nd half of A, n/2)
+  z = countSplitInversions(A,n)
+  return x + y + z
+
+Goal. Implement countSplit inversions in O(n) time.
+Therefor we will have O(nlogn) time for the whole algorithm.
