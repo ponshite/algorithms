@@ -1,0 +1,41 @@
+Integer Multiplication.
+
+Algorithm for multiplying two numbers.
+Well defined set of rules that transforms the input into the desired output.
+
+Integer Multiplication problem.
+Input: two n-digit numbers x and y.
+Output: The product x*y
+
+
+"Primitive Operation" add or multiply 2 single-digit numbers.
+
+Key idea to compare:
+Count the number of operations as a function of the input size.
+
+The grade-school Algorithm
+
+    5678
+  x 1234
+  _________
+    22712
+   17034
+  11356
+ 5678
+ ___________
+ 7006652
+
+ This algorithm is correct. You are never going to get a wrong answer.
+ What is the amount of time needed to complete this operation?
+
+ Informal analysis of the number of operations required.
+ For each partial product we did at most 2n operations
+ We have to compute n partial products.
+
+ This algorithm will require n^2 primitive operations to perform the
+ multiplication.
+
+ The Algorithm Designer's Mantra
+ "Perhaps the most important principle for the good algorithm designer is to
+ refuse to be content."
+  -> "Can we do better?"

@@ -1,0 +1,22 @@
+Why Study Algorithms?
+
+
+What is an algorithm anyway?
+Set of well defined rules or a recipe to solve a computational problem.
+ -> Shortest path
+ -> Number of tasks needed to be completed by a deadline.
+
+Why study algorithms?
+Important for all the other branches of computer science.
+  * Networking
+  * Graphics
+  * Cryptography
+  * Biology
+  ...
+
+Plays a key role in modern technological innovation.
+Provides novel "lens" on process outside of computer science and techology.
+ -> Evolution, financial markets, etc
+
+Challenging!
+Fun!
