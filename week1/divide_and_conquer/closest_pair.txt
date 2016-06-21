@@ -1,0 +1,125 @@
+Divide and Conquer Algorithm for Closest Pair
+
+Problem.
+Input: a Set p = {p1 ... pn} of n points in the plane (R^2)
+
+Notation: d(pi,pj) = Euclidean distance.
+So if pi=(xi,yi) and pj=(xj,yj) d(pi,pj) = ((xi-xj)^2 + (yi-yi)^2) ^1/2
+
+Output: A pair of points that minimizes the distance between them
+among all the possible combinations.
+
+
+Assumption: All points have distinct x-coordinate, distinct y-coordinate.
+
+
+Brute Force: Takes O(n^2) time.
+
+Can we do better?
+
+
+
+1 - D Version of closes pair.
+
+Sort the points.
+Scan closest pair of adjacent points (O(n) time)
+
+
+
+
+High Level approach
+  Make copies of points sorted
+  by x-coordinate (Px) and by y-coordinate (Py) [O(nlogn) time]
+
+
+  This will not be enough, adjacent points in Px or Py are not necessary
+  the closest pair in the set.
+
+
+Use divide and conquer.
+
+
+Closest Pair (Px, Py)
+1. Let Q= left half of P, R= right half of P.
+Form Qx, Qy, Rx, Ry (takes O(n) time)
+2 (p1,q1) = ClosestPair(Qx,Qy)
+3 (p2,q2) = ClosestPair(Rx,Ry)
+
+// Lucky case, points are either in Qx, Qy or in Rx,RY
+// Unlucky case, points are split between P Q
+
+4 (p3,q3) = ClosestSplitPair(Px,Py)
+
+5 Return best of (p1,q1), (p2,q2), (p3,q3)
+
+If we can implement the ClosestSplitPair subroutine in O(n), then the
+whole algorithm will run in O(nlogn) time. Analogy with merge sort.
+
+
+Key Idea: only need to bother computing the closest pair
+in "unlucky case" where its distance is less than
+d(p1,q1) and d(p2,q2)
+
+
+
+
+1. Let Q= left half of P, R= right half of P.
+Form Qx, Qy, Rx, Ry (takes O(n) time)
+2 (p1,q1) = ClosestPair(Qx,Qy)
+3 (p2,q2) = ClosestPair(Rx,Ry)
+4 Let delta= min(d(p1,q1), d(p2,q2))
+
+5 (p3,q3) = ClosestSplitPair(Px,Py, delta)
+
+6 Return best of (p1,q1), (p2,q2), (p3,q3)
+
+ClosestSplitPair: Requirements.
+1 O(n) time
+2 Correct whenever closes pair of P is a split pair
+
+  ClosesSplitPair(Px,Py, delta)
+
+Let x^ = biggest x- coordinate in left P. (middle element)
+Let Sy = Points of P with x-coordinate in [x^ - delta, x^+delta] sorted
+by Y coordinate. (Can be done in linear time)
+
+Initialize best = delta, bestpair = null
+for i = 1 to |Sy| - 1
+  for j = 1 to min(7,|Sy|-i)
+    let p,q = ith (i+j)th points in Sy
+    if d(p,q) < best
+      bestpair = (p,q)
+      best = d(p,q)
+    end
+  end
+end
+
+This runs in O(n) time.
+
+
+Correctness Claim
+Claim: Let p belongs to Q, q belongs to R be a split pair with
+d(p,q) < delta.
+
+Then:
+A. P and q are members of Sy.
+B. P and q are at most 7 positions apart in Sy.
+
+Corollary 1 :
+If the closest pair of P is a split pair, then CountSplitPair finds it.
+
+
+
+Proof of Correctness Claim(A):
+Let p(x1,y1) belongs to Q and q=(x2,y2) belongs to R with d(p,q) < delta
+
+Note: Since d(p,q) < delta, |x1-x2| < delta and |y1-y2| < delta.
+
+p and q are members of Sy.
+
+_______________________________________
+    x^-delta     x1    x^   x2      x^+delta
+
+    x1 and x2 should be divided by x^
+    If they are separated more than delta distance, they are not the closest
+    pair
