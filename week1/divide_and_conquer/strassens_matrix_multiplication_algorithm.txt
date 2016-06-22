@@ -1,0 +1,61 @@
+Strassen's Matrix Multiplication Algorithm
+
+
+Matrix Multiplication
+
+Three Matrices. Assume n*n
+X * Y  = Z
+
+How do you compute the product of two matrices?
+
+Zij = ith row of X (dot product) jth column of Y
+    = Sum(k=1, n) [Xik * Ykj]
+
+Zij entry takes O(n) to compute
+We have n^2 elements to compute.
+
+
+Running time for naive algorithm is
+O(n^3)
+
+( a b   ( e f       =   (ae+bg af+bh)
+  c d )   g h )          ce+cg cf+ch
+
+
+Can we do better?!
+Key idea: Try something similar to the integer multiplication
+problem.
+
+Applying Divide and Conquer.
+Idea:
+X (n by n matrix)
+
+
+X= [A B
+     C D]
+Y= [E F
+    G H]
+
+When you split a matrix into block and you multiply them,
+the block behave as atomic elements.
+
+Then:
+X * Y  = ( AE + BG    AF+BH
+           CE+DG      CF+DH)
+
+Recursive Algorithm #1
+X*Y = AE+BG AF+BH
+      CE+DG CF+DH
+
+Step1: recursively compute the 8 necessary products.
+Setp2: do the necessary aditions (O(n^2))
+
+Fact: Running time is O(n^3)
+
+Can we do something clever to reduce number of recursive calls?
+
+Step1: recursively compute only 7
+Step2: Do necessary (clever) additions +
+      subtractions (still O(n^2))
+
+Fact: Running Time is better than cubic
