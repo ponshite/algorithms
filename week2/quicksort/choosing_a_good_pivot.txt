@@ -1,0 +1,11 @@
+Suppose we implement Quicksort so that Choospivot always
+selects the first element of the array. What is the running time
+of this algorith on an input array that is already sorted?
+
+O(n^2)
+
+
+If we choose the median as pivot, the partitioning will be around the middle.
+The recurrence will be the same as Merge Sort
+T(n) = 2T(n/2) + O(n)
+T(n) = O(nlogn)

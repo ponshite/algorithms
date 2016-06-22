@@ -1,0 +1,86 @@
+Quicksort
+
+Greatest hit algorithm
+Prevalent in practice
+Beautiful Analysis
+O(nlogn) time "on average". Works in place.
+
+
+Partition Around a Pivot
+Key idea: partition array around a pivot element
+
+Pick element of array
+
+Rearrange array so that:
+left of pivot -> less than pivot.
+right of pivot -> greater than pivot.
+
+
+Note: Puts pivot in its "rightful position"
+
+Two Cool Facts about partition.
+
+1. Linear (O(n)) time, no extra memory.
+2. Reduce problem size.
+
+QuickSort: High-level description
+
+Quicksort(array a, length n)
+if n=1 return
+p=ChoosePivot(A,n)
+partition A around p [     <     |p|       >   ]
+recursively sort 1st part
+recursively sort 2nd part
+
+
+
+In place implementation.
+Assume: pivot = 1st element of array.
+High level idea:
+Single scan through the array.
+Invariant: Everything looked at so far is already partitioned.
+
+Maintain two indices.
+i -> points to the pivot
+j -> current element.
+
+
+[3,8,2,5,1,4,7,6]
+ |
+
+[3,8,2,5,1,4,7,6]
+   | j
+   | i
+[3,2,8,5,1,4,7,6]
+     | (swap 8,2) j
+     | i
+[3,2,8,5,1,4,7,6]
+       | j
+     | i
+
+[3,2,1,5,8,4,7,6]
+         |(swap 8,1) j
+       | i
+[3,2,1,5,8,4,7,6]
+           | nothing to do after this point
+
+[1,2,3,5,8,4,7,6]
+Swap pivot with --i.
+
+Pseudocode for Partition.
+Partition(A,l,r)
+pi=A[l]
+i = l + 1
+for j = l+1 to r
+  if A[j] < p
+    swap A[j], A[i]
+    i++
+swap a[l] a[i-1]
+
+Running Time:
+O(n). works in place
+
+Correctness.
+Claim: the for loop maintains the invariant.
+A[l+1]...A[i-1] are all less than the pivot.
+A[i]....A[j-1] are all greater than pivot.
